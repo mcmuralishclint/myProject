@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :verticals do
+    resources :categories do
+      resources :courses
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post 'management/create_or_update_resources', to: 'management#create_or_update_resources'
 end
