@@ -29,3 +29,8 @@
 /config/master.key
 
 .gitattributes
+misc.xml
+modules.xml
+myproject.iml
+vcs.xml
+.idea/
