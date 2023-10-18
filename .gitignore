@@ -34,3 +34,4 @@ modules.xml
 myproject.iml
 vcs.xml
 .idea/
+.rspec
