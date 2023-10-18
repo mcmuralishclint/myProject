@@ -35,3 +35,4 @@ myproject.iml
 vcs.xml
 .idea/
 .rspec
+/tmp
