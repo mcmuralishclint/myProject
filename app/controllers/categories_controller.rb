@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :update, :destroy]
+  before_action :set_category, only: [:show]
 
   def index
     @categories = Category.all
@@ -10,35 +10,9 @@ class CategoriesController < ApplicationController
     render json: @category
   end
 
-  def create
-    @category = Vertical.new(category_params)
-
-    if @category.save
-      render json: @category, status: :created
-    else
-      render json: @category.errors, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    if @category.update(category_params)
-      render json: @category
-    else
-      render json: @category.errors, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @category.destroy
-  end
-
   private
 
   def set_category
     @category = Category.find(params[:id])
-  end
-
-  def category_params
-    params.require(:category).permit(:name, :state, :vertical_id)
   end
 end
