@@ -8,7 +8,7 @@ This repository contains the implementation of a backend API for managing nested
 -   [Installation](#Installation)
 -   [Models](#Models)
 -   [Controllers](#Controllers)
--   [API Endpoints](#API Endpoints)
+-   [API Endpoints](#API-Endpoints)
 -   [Elastic Search](#Elastic Search)
 -   [Database Setup](#Database Setup)
 -   [OAuth Provider](#OAuth Provider)
@@ -80,7 +80,7 @@ The setup can be done using Docker. Follow the steps below:
 -   ResourcesController
 -   SearchController
 
-## API Endpoints
+## API-Endpoints
 
 ### Verticals
 
