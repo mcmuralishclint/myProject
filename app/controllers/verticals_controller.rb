@@ -1,5 +1,5 @@
 class VerticalsController < ApplicationController
-  before_action :set_vertical, only: [:show, :update, :destroy]
+  before_action :set_vertical, only: [:show]
 
   def index
     @verticals = Vertical.all
@@ -10,35 +10,9 @@ class VerticalsController < ApplicationController
     render json: @vertical
   end
 
-  def create
-    @vertical = Vertical.new(vertical_params)
-
-    if @vertical.save
-      render json: @vertical, status: :created
-    else
-      render json: @vertical.errors, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    if @vertical.update(vertical_params)
-      render json: @vertical
-    else
-      render json: @vertical.errors, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @vertical.destroy
-  end
-
   private
 
   def set_vertical
     @vertical = Vertical.find(params[:id])
-  end
-
-  def vertical_params
-    params.require(:vertical).permit(:name)
   end
 end
