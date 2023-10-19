@@ -37,3 +37,4 @@ vcs.xml
 .rspec
 /tmp
 /log
+/coverage
