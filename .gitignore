@@ -36,3 +36,4 @@ vcs.xml
 .idea/
 .rspec
 /tmp
+/log
