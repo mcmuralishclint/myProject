@@ -8,6 +8,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     services:
       postgres:
         image: postgres:11-alpine
@@ -36,7 +39,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Install Elasticsearch client
-        run: bin/bundle exec rails elasticsearch:install
+        run: bundle exec rails elasticsearch:install
         working-directory: /github/workspace
       - name: Install dependencies
         run: bin/bundle install --jobs 4 --retry 3
