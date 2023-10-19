@@ -1,4 +1,3 @@
-# config/initializers/elasticsearch.rb
 Elasticsearch::Model.client = Elasticsearch::Client.new(log: true)
 Rails.application.config.after_initialize do
   Vertical.__elasticsearch__.create_index! force: true
