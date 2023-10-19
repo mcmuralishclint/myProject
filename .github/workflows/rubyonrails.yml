@@ -17,9 +17,17 @@ jobs:
           POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+        ports:
+          - "9200:9200"
+        env:
+          discovery.type: single-node
+          action.auto_create_index: true
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      ELASTICSEARCH_URL: "http://localhost:9200"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
