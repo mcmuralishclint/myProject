@@ -53,7 +53,7 @@ RSpec.describe "Verticals", type: :request do
     it 'throws a 422 error if the update is not succesful' do
       NEW_VERTICAL_NAME = "TEST_VERTICAL_2"
       vertical1 = Vertical.create(id:1, name: "TEST_VERTICAL_1")
-      vertical12= Vertical.create(id:2, name: "TEST_VERTICAL_2")
+      vertical2= Vertical.create(id:2, name: "TEST_VERTICAL_2")
       put "/verticals/1", params: { vertical: { name: NEW_VERTICAL_NAME } }, as: :json
       expect(response).to_not be_successful
       expect(response).to have_http_status(:unprocessable_entity)
