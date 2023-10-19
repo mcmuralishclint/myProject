@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'management/create_or_update_resources', to: 'management#create_or_update_resources'
+  scope :api do
+    scope :v1 do
+      post '/create_resources', to: 'resources#create'
+    end
+  end
 end
