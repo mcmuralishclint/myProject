@@ -35,19 +35,13 @@ The setup can be done using Docker. Follow the steps below:
     
 2.  Clone this repository:
     
-    bashCopy code
-    
     `git clone git@github.com:mcmuralishclint/myProject.git` 
     
 3.  Change into the project directory:
     
-    bashCopy code
-    
-    `cd myProject
+    `cd myProject`
     
 4.  Build and run the Docker containers:
-    
-    bashCopy code
     
     `docker-compose up` 
     
@@ -123,8 +117,6 @@ An OAuth provider is set up to protect the API. OAuth ensures secure and authent
 ## Testing
 
 The API includes comprehensive testing to ensure functionality and reliability. You can run the tests using:
-
-bashCopy code
 
 `docker-compose exec app bundle exec rspec` 
 
