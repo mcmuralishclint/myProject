@@ -117,8 +117,7 @@ An OAuth provider is set up to protect the API. OAuth ensures secure and authent
 ## Testing
 
 The API includes comprehensive testing to ensure functionality and reliability. You can run the tests using:
-*Ensure docker-compose up is running on another terminal*
-`docker-compose exec app bundle exec rspec` 
+`docker-compose run test`
 
 ## Future-Improvements
 
