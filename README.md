@@ -9,12 +9,12 @@ This repository contains the implementation of a backend API for managing nested
 -   [Models](#Models)
 -   [Controllers](#Controllers)
 -   [API Endpoints](#API-Endpoints)
--   [Elastic Search](#Elastic Search)
--   [Database Setup](#Database Setup)
--   [OAuth Provider](#OAuth Provider)
+-   [Elastic Search](#Elastic-Search)
+-   [Database Setup](#Database-Setup)
+-   [OAuth Provider](#OAuth-Provider)
 -   [Testing](#Testing)
--   [Future Improvements](#Future Improvements)
--   [Questions for Future Implementation](#Questions for Future Implementaion)
+-   [Future Improvements](#Future-Improvements)
+-   [Questions for Future Implementation](#Questions-for-Future-Implementaion)
 
 ## Requirements
 
@@ -102,15 +102,15 @@ The setup can be done using Docker. Follow the steps below:
 -   `POST /create_resources`: Create new nested resource
 -   `PATCH /update_resources/:id`: Update a resource along with its nested components
 
-## Elastic Search
+## Elastic-Search
 
 Elastic Search is used to list items on the records collection page. The integration ensures efficient and scalable search functionality.
 
-## Database Setup
+## Database-Setup
 
 Postgres is used as the database for this project. The initial setup is handled by Docker, and a seed file is provided to populate the database with sample data. The seed file will be executed as part of the docker-compose up command.
 
-## OAuth Provider
+## OAuth-Provider
 
 An OAuth provider is set up to protect the API. OAuth ensures secure and authenticated access to the API endpoints.
 
@@ -120,7 +120,7 @@ The API includes comprehensive testing to ensure functionality and reliability. 
 
 `docker-compose exec app bundle exec rspec` 
 
-## Future Improvements
+## Future-Improvements
 
 Some potential improvements for the future include:
 
@@ -128,7 +128,7 @@ Some potential improvements for the future include:
 -   Enhancing OAuth provider configurations for better security.
 -   Adding more comprehensive error handling and logging.
 
-## Questions for Future Implementation
+## Questions-for-Future-Implementation
 
 -   How does the solution perform?
 	- TBA
