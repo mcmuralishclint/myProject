@@ -4,17 +4,17 @@ This repository contains the implementation of a backend API for managing nested
 
 ## Table of Contents
 
--   [Requirements](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#requirements)
--   [Installation](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#installation)
--   [Models](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#models)
--   [Controllers](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#controllers)
--   [API Endpoints](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#api-endpoints)
--   [Elastic Search](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#elastic-search)
--   [Database Setup](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#database-setup)
--   [OAuth Provider](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#oauth-provider)
--   [Testing](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#testing)
--   [Future Improvements](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#future-improvements)
--   [Questions for Future Implementation](https://chat.openai.com/c/804068b1-2f2c-416b-a37c-aecbf287b11f#questions-for-future-implementation)
+-   [Requirements](#Requirements)
+-   [Installation](#Installation)
+-   [Models](#Models)
+-   [Controllers](#Controllers)
+-   [API Endpoints](#API Endpoints)
+-   [Elastic Search](#Elastic Search)
+-   [Database Setup](#Database Setup)
+-   [OAuth Provider](#OAuth Provider)
+-   [Testing](#Testing)
+-   [Future Improvements](#Future Improvements)
+-   [Questions for Future Implementation](#Questions for Future Implementaion)
 
 ## Requirements
 
