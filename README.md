@@ -14,7 +14,7 @@ This repository contains the implementation of a backend API for managing nested
 -   [OAuth Provider](#OAuth-Provider)
 -   [Testing](#Testing)
 -   [Future Improvements](#Future-Improvements)
--   [Questions for Future Implementation](#Questions-for-Future-Implementaion)
+-   [Questions for Future Implementation](#Questions-for-Future-Implementation)
 
 ## Requirements
 
@@ -126,6 +126,9 @@ Some potential improvements for the future include:
 -   Implementing more advanced search functionality using Elastic Search.
 -   Enhancing OAuth provider configurations for better security.
 -   Adding more comprehensive error handling and logging.
+-   Improve caching
+-   Improve API structuring
+-   Including swagger documentation
 
 ## Questions-for-Future-Implementation
 
