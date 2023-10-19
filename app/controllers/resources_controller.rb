@@ -1,12 +1,23 @@
 class ResourcesController < ApplicationController
   def create
-    service = ResourceCreationService.new(vertical_params, category_params, course_params)
+    service = ResourceManagementService.new(vertical_params, category_params, course_params)
     result = service.create_resources
 
     if result
       render json: result, status: :created
     else
       render json: { error: 'Resource creation failed' }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    service = ResourceManagementService.new(vertical_params, category_params, course_params)
+    result = service.update_resources(params[:id])
+
+    if result
+      render json: result, status: :ok
+    else
+      render json: { error: 'Resource update failed' }, status: :unprocessable_entity
     end
   end
 
