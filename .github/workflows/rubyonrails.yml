@@ -17,9 +17,17 @@ jobs:
           POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+        ports:
+          - "9200:9200"
+        env:
+          discovery.type: single-node
+          action.auto_create_index: true
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      ELASTICSEARCH_URL: "http://localhost:9200"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,6 +35,9 @@ jobs:
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
+      - name: Install Elasticsearch client
+        run: bin/bundle exec rails elasticsearch:install
+        working-directory: /github/workspace
       - name: Install dependencies
         run: bin/bundle install --jobs 4 --retry 3
       - name: Set up database schema
