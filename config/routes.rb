@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   scope :api do
     scope :v1 do
       get '/search', to: 'search#index'
+      get '/login', to: 'auth#login'
     end
   end
 end

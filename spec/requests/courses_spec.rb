@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Course", type: :request do
+  include_examples 'skip_authorization'
   before do
     @vertical = create(:vertical)
     @category = create(:category, vertical: @vertical)

@@ -1,8 +1,9 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
+  before_action :authorize_request
 
   def index
-    @courses = Course.all
+    @courses = Course.where(category_id: params[:category_id])
     render json: @courses
   end
 

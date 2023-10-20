@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  before_action :authorize_request
   def index
     query = params[:q]
     results = search(query)

@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show]
+  before_action :authorize_request
 
   def index
-    @categories = Category.all
+    @categories = Category.where(vertical_id: params[:vertical_id])
     render json: @categories
   end
 
