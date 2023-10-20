@@ -1,5 +1,5 @@
 class VerticalsController < ApplicationController
-  before_action :set_vertical, only: [:show]
+  before_action :set_vertical, only: [:show, :update]
 
   def index
     @verticals = Vertical.all
@@ -11,13 +11,19 @@ class VerticalsController < ApplicationController
   end
 
   def create
-    binding.pry
-    vertical = Vertical.new(vertical_creation_params)
-    binding.pry
+    vertical = Vertical.new(vertical_params)
     if vertical.save
       render json: vertical, status: :created
     else
       render json: vertical.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @vertical.update(vertical_params)
+      render json: @vertical, status: :ok
+    else
+      render json: @vertical.errors, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +33,7 @@ class VerticalsController < ApplicationController
     @vertical = Vertical.find(params[:id])
   end
 
-  def vertical_creation_params
-    params.require(:vertical).permit(:name, categories_attributes: [:name, courses_attributes: [:name, :title]])
+  def vertical_params
+    params.require(:vertical).permit(:name, categories_attributes: [:id, :name, courses_attributes: [:id, :name, :author]])
   end
 end
