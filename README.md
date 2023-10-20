@@ -11,7 +11,6 @@ This repository contains the implementation of a backend API for managing nested
 -   [API Endpoints](#API-Endpoints)
 -   [Elastic Search](#Elastic-Search)
 -   [Database Setup](#Database-Setup)
--   [OAuth Provider](#OAuth-Provider)
 -   [Testing](#Testing)
 -   [Future Improvements](#Future-Improvements)
 -   [Questions for Future Implementation](#Questions-for-Future-Implementation)
@@ -80,6 +79,8 @@ The setup can be done using Docker. Follow the steps below:
 -   SearchController
 
 ## API-Endpoints
+A JWT Token is set up to protect the API. JWT ensures secure and authenticated access to the API endpoints.
+visit `localhost:3000/login` to get your unique login token and pass this token in the request header with the key: **x-auth**
 
 ### Verticals
 
@@ -88,13 +89,13 @@ The setup can be done using Docker. Follow the steps below:
 
 ### Categories
 
--   `GET /categories`: List all categories
--   `GET /categories/:id`: Show details of a specific category
+-   `GET /verticals/:id/categories`: List all categories belonging to a vertical
+-   `GET /verticals/:id/categories/:id`: Show details of a specific category
 
 ### Courses
 
--   `GET /courses`: List all courses
--   `GET /courses/:id`: Show details of a specific course
+-   `GET /verticals/:id/categories/:id/courses`: List all courses
+-   `GET /verticals/:id/categories/:id/courses/:id`: Show details of a specific course
 
 ### Search
 
@@ -107,10 +108,6 @@ Elastic Search is used to list items on the records collection page. The integra
 ## Database-Setup
 
 Postgres is used as the database for this project. The initial setup is handled by Docker, and a seed file is provided to populate the database with sample data. The seed file will be executed as part of the docker-compose up command.
-
-## OAuth-Provider
-
-An OAuth provider is set up to protect the API. OAuth ensures secure and authenticated access to the API endpoints.
 
 ## Testing
 
@@ -127,6 +124,7 @@ Some potential improvements for the future include:
 -   Improve caching
 -   Improve API structuring
 -   Including swagger documentation
+-   Move the authentication to a middleware
 
 ## Questions-for-Future-Implementation
 
