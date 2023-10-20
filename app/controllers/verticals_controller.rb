@@ -1,5 +1,6 @@
 class VerticalsController < ApplicationController
   before_action :set_vertical, only: [:show, :update]
+  before_action :authorize_request
 
   def index
     @verticals = Vertical.all
