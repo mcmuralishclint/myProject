@@ -1,0 +1,18 @@
+{
+  "vertical": {
+    "name": "Test5353",
+    "categories_attributes": [
+      {
+        "id": 1,
+        "name": "Updated Category Name",
+        "courses_attributes": [
+          {
+            "id": 1,
+            "name": "Updated Course Name",
+            "author": "Updated Author"
+          }
+        ]
+      }
+    ]
+  }
+}

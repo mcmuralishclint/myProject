@@ -1,0 +1,20 @@
+{
+  "vertical": {
+    "name": "My Vertical 1",
+    "categories_attributes": [
+      {
+        "name": "Category 2",
+        "courses_attributes": [
+          {
+            "name": "Course 4",
+            "title": "Title 1"
+          },
+          {
+            "name": "Course 5",
+            "title": "Title 2"
+          }
+        ]
+      }
+    ]
+  }
+}
