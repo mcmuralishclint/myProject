@@ -1,12 +1,10 @@
 class ResourcesController < ApplicationController
   def create
-    service = ResourceManagementService.new(vertical_params, category_params, course_params)
-    result = service.create_resources
-
-    if result
-      render json: result, status: :created
+    vertical = Vertical.new(resource_creation_params)
+    if vertical.save
+      render json: vertical, status: :created
     else
-      render json: { error: 'Resource creation failed' }, status: :unprocessable_entity
+      render json: vertical.errors, status: :unprocessable_entity
     end
   end
 
@@ -23,15 +21,7 @@ class ResourcesController < ApplicationController
 
   private
 
-  def vertical_params
-    params.require(:vertical).permit(:name)
-  end
-
-  def category_params
-    params.require(:category).permit(:name)
-  end
-
-  def course_params
-    params.require(:course).permit(:name, :author)
+  def resource_creation_params
+    params.require(:vertical).permit(:name, categories_attributes: [:name, courses_attributes: [:name, :title]])
   end
 end
