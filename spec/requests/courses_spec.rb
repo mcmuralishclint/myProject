@@ -10,14 +10,14 @@ RSpec.describe "Course", type: :request do
 
   describe "GET /index" do
     it 'returns a successful response' do
-      get "/verticals/#{@vertical.id}/categories/#{@category.id}/courses"
+      get "/api/v1/verticals/#{@vertical.id}/categories/#{@category.id}/courses"
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it 'returns a successful response' do
-      get "/verticals/#{@vertical.id}/categories/#{@category.id}/courses/#{@course.id}"
+      get "/api/v1/verticals/#{@vertical.id}/categories/#{@category.id}/courses/#{@course.id}"
       expect(response).to be_successful
     end
   end
