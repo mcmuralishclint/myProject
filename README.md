@@ -77,6 +77,7 @@ The setup can be done using Docker. Follow the steps below:
 -   CategoriesController
 -   CoursesController
 -   SearchController
+-   AuthController
 
 ## API-Endpoints
 A JWT Token is set up to protect the API. JWT ensures secure and authenticated access to the API endpoints.
@@ -86,6 +87,8 @@ visit `localhost:3000/login` to get your unique login token and pass this token 
 
 -   `GET /verticals`: List all verticals
 -   `GET /verticals/:id`: Show details of a specific vertical
+-   `POST /verticals`: Create nested resources (verticals, categories, and courses)
+-   `PUT /verticals/:id`: Update nested resources (verticals, categories, and courses)
 
 ### Categories
 
