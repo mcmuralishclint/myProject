@@ -3,4 +3,7 @@ Rails.application.config.after_initialize do
   Vertical.__elasticsearch__.create_index! force: true
   Category.__elasticsearch__.create_index! force: true
   Course.__elasticsearch__.create_index! force: true
+  Vertical.import rescue nil
+  Category.import rescue nil
+  Course.import rescue nil
 end
