@@ -7,9 +7,8 @@ class Vertical < ApplicationRecord
   accepts_nested_attributes_for :categories
 
   # validations
-  validates :name, uniqueness_across_models: true
-  validates_uniqueness_of :name
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true, uniqueness_across_models: true
+
 
   # post hooks
   after_commit :index_document, on: [:create, :update]
@@ -23,6 +22,13 @@ class Vertical < ApplicationRecord
   private
 
   def index_document
-    self.import rescue nil
+    begin
+      self.import
+    rescue Elasticsearch::Transport::Transport::Errors::NotFound
+      nil
+    rescue => e
+      nil
+    end
   end
+
 end
