@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Verticals", type: :request do
+  include_examples 'skip_authorization'
   describe "GET /index" do
     it 'returns a successful response' do
       get "/verticals/"
