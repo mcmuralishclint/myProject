@@ -77,7 +77,6 @@ The setup can be done using Docker. Follow the steps below:
 -   VerticalsController
 -   CategoriesController
 -   CoursesController
--   ResourcesController
 -   SearchController
 
 ## API-Endpoints
@@ -97,10 +96,9 @@ The setup can be done using Docker. Follow the steps below:
 -   `GET /courses`: List all courses
 -   `GET /courses/:id`: Show details of a specific course
 
-### Resource
+### Search
 
--   `POST /create_resources`: Create new nested resource
--   `PATCH /update_resources/:id`: Update a resource along with its nested components
+-   `GET /api/v1/search?q=`: Search reources by name
 
 ## Elastic-Search
 

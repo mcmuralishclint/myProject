@@ -2,12 +2,18 @@ class Category < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  # relationships
   belongs_to :vertical
-  has_one :course, dependent: :destroy
-  validates :name, uniqueness_across_models: true
-  enum state: { active: 1, inactive: 0 }
+  has_many :courses, dependent: :destroy
+  accepts_nested_attributes_for :courses
 
+  # validations
+  validates :name, presence: true, uniqueness: true, uniqueness_across_models: true
+
+  # post hooks
   after_commit :index_document, on: [:create, :update]
+
+  enum state: { active: 1, inactive: 0 }
 
   settings index: { number_of_shards: 1 } do
     mappings dynamic: 'false' do
@@ -18,6 +24,12 @@ class Category < ApplicationRecord
   private
 
   def index_document
-    self.import rescue nil
+    begin
+      self.import
+    rescue Elasticsearch::Transport::Transport::Errors::NotFound
+      nil
+    rescue => e
+      nil
+    end
   end
 end
