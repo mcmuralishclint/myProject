@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
   scope :api do
     scope :v1 do
-      post '/create_resources', to: 'resources#create'
-      patch '/update_resources/:id', to: 'resources#update'
       get '/search', to: 'search#index'
     end
   end
