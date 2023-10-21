@@ -9,14 +9,14 @@ RSpec.describe "Category", type: :request do
 
   describe "GET /index" do
     it 'returns a successful response' do
-      get "/verticals/#{@vertical.id}/categories"
+      get "/api/v1/verticals/#{@vertical.id}/categories"
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it 'returns a successful response' do
-      get "/verticals/#{@vertical.id}/categories/#{@category.id}"
+      get "/api/v1/verticals/#{@vertical.id}/categories/#{@category.id}"
       expect(response).to be_successful
     end
   end

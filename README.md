@@ -121,11 +121,14 @@ The API includes comprehensive testing to ensure functionality and reliability. 
 
 Some potential improvements for the future include:
 
--   Implementing more advanced search functionality using Elastic Search.
--   Enhancing OAuth provider configurations for better security.
+-   Elastic search
+    - I was not clear on the acceptence criteria hence implemented a generic functionality using elastic search such that, provide a name in the query name, the application should return all the instances of the available models with matching names.
+-   Auth
+    - A generic authentication/authorizaton have been implemented with the help of jwt tokens. We can enahance this further with expiry, user scopes, etc
 -   Adding more comprehensive error handling and logging.
--   Improve caching
+    - The error messages are generic right now and we can improve this further such that each scenario can have specific error messages/codes
 -   Improve API structuring
+    - 
 -   Including swagger documentation
 -   Move the authentication to a middleware
 
