@@ -81,24 +81,24 @@ The setup can be done using Docker. Follow the steps below:
 
 ## API-Endpoints
 A JWT Token is set up to protect the API. JWT ensures secure and authenticated access to the API endpoints.
-visit `localhost:3000/login` to get your unique login token and pass this token in the request header with the key: **x-auth**
+visit `localhost:3000/api/v1/login` to get your unique login token and pass this token in the request header with the key: **x-auth**
 
 ### Verticals
 
--   `GET /verticals`: List all verticals
--   `GET /verticals/:id`: Show details of a specific vertical
--   `POST /verticals`: Create nested resources (verticals, categories, and courses)
--   `PUT /verticals/:id`: Update nested resources (verticals, categories, and courses)
+-   `GET api/v1/verticals`: List all verticals
+-   `GET api/v1/verticals/:id`: Show details of a specific vertical
+-   `POST api/v1/verticals`: Create nested resources (verticals, categories, and courses)
+-   `PUT api/v1/verticals/:id`: Update nested resources (verticals, categories, and courses)
 
 ### Categories
 
--   `GET /verticals/:id/categories`: List all categories belonging to a vertical
--   `GET /verticals/:id/categories/:id`: Show details of a specific category
+-   `GET api/v1/verticals/:id/categories`: List all categories belonging to a vertical
+-   `GET api/v1/verticals/:id/categories/:id`: Show details of a specific category
 
 ### Courses
 
--   `GET /verticals/:id/categories/:id/courses`: List all courses
--   `GET /verticals/:id/categories/:id/courses/:id`: Show details of a specific course
+-   `GET api/v1/verticals/:id/categories/:id/courses`: List all courses
+-   `GET api/v1/verticals/:id/categories/:id/courses/:id`: Show details of a specific course
 
 ### Search
 
