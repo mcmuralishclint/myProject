@@ -120,8 +120,10 @@ The API includes comprehensive testing to ensure functionality and reliability. 
 -   How does the solution perform?
     - The current solution is able to cater to requests efficiently as there are indexes on the columns that  are frequently queried
             - Indexes are added to the foreign keys as part of the `rails generate model` command by specifying the references keyword
+    - A basic auth function is implemented with the help of JWT tokens but this would require optimization if we were to scale the implementation the application. 
 -   How does the solution scale?
-    -  TBA
+    -  Search for unique title across models is implemented in a naive way. A better approach could be followed to perform the search for uniqueness efficiently -- Explore if there are any inbuilt functionalities to support this.
+    - I've used an interface pattern for handling the search -- if we were to move to a different provider (other than ElasticSearch), we can easily do so by write a seperate class and specifying the configuration.
 -   What would you improve next?
     -   Elastic search
         - I was not clear on the acceptence criteria hence implemented a generic functionality using elastic search such that, provide a name in the query name, the application should return all the instances of the available models with matching names.
