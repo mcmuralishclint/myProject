@@ -13,7 +13,6 @@ This repository contains the implementation of a backend API for managing nested
 -   [Database Setup](#Database-Setup)
 -   [Testing](#Testing)
 -   [Future Improvements](#Future-Improvements)
--   [Questions for Future Implementation](#Questions-for-Future-Implementation)
 
 ## Requirements
 
@@ -118,25 +117,18 @@ The API includes comprehensive testing to ensure functionality and reliability. 
 `docker-compose run test`
 
 ## Future-Improvements
-
-Some potential improvements for the future include:
-
--   Elastic search
-    - I was not clear on the acceptence criteria hence implemented a generic functionality using elastic search such that, provide a name in the query name, the application should return all the instances of the available models with matching names.
--   Auth
-    - A generic authentication/authorizaton have been implemented with the help of jwt tokens. We can enahance this further with expiry, user scopes, etc
--   Adding more comprehensive error handling and logging.
-    - The error messages are generic right now and we can improve this further such that each scenario can have specific error messages/codes
--   Improve API structuring
-    - 
--   Including swagger documentation
--   Move the authentication to a middleware
-
-## Questions-for-Future-Implementation
-
 -   How does the solution perform?
-	- TBA
+    - The current solution is able to cater to requests efficiently as there are indexes on the columns that  are frequently queried
+            - Indexes are added to the foreign keys as part of the `rails generate model` command by specifying the references keyword
 -   How does the solution scale?
-	- TBA
+    -  TBA
 -   What would you improve next?
-	- TBA
+    -   Elastic search
+        - I was not clear on the acceptence criteria hence implemented a generic functionality using elastic search such that, provide a name in the query name, the application should return all the instances of the available models with matching names.
+    -   Auth
+        - A generic authentication/authorizaton have been implemented with the help of jwt tokens. We can enahance this further with expiry, user scopes, etc
+    -   Adding more comprehensive error handling and logging.
+        - The error messages are generic right now and we can improve this further such that each scenario can have specific error messages/codes
+    -   Including swagger documentation
+    -   Move the authentication to a middleware
+    -   Add a cache layer such that when a find querying is hit, it's first checked in the cache before searching in the db.
