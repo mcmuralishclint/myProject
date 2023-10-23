@@ -82,26 +82,105 @@ The setup can be done using Docker. Follow the steps below:
 A JWT Token is set up to protect the API. JWT ensures secure and authenticated access to the API endpoints.
 visit `localhost:3000/api/v1/login` to get your unique login token and pass this token in the request header with the key: **x-auth**
 
+```shell
+curl --location 'localhost:3000/api/v1/login'
+```
+
 ### Verticals
 
 -   `GET api/v1/verticals`: List all verticals
+```shell
+curl --location 'localhost:3000/api/v1/verticals' \
+--header 'x-auth: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiVEVTVCIsImV4cCI6MTY5ODE1MjQ2NX0.ZSj0meKJ4cu6jwCs-cR2wmN8zQMHynkoj7MgpegJpZc'
+```
 -   `GET api/v1/verticals/:id`: Show details of a specific vertical
+```shell
+curl --location 'localhost:3000/api/v1/verticals/1' \
+--header 'x-auth: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiVEVTVCIsImV4cCI6MTY5Nzg4NDgyNH0.s1rMYjKPU7gdBrPS1z904iXI9UxJRYl4eyWNrYgqPS8'
+```
 -   `POST api/v1/verticals`: Create nested resources (verticals, categories, and courses)
+```shell
+curl --location 'localhost:3000/api/v1/verticals' \
+--header 'Content-Type: application/json' \
+--data '{
+  "vertical": {
+    "name": "My Vertical 1",
+    "categories_attributes": [
+      {
+        "name": "Category 2",
+        "courses_attributes": [
+          {
+            "name": "Course 4",
+            "title": "Title 1"
+          },
+          {
+            "name": "Course 5",
+            "title": "Title 2"
+          }
+        ]
+      }
+    ]
+  }
+}
+'
+```
 -   `PUT api/v1/verticals/:id`: Update nested resources (verticals, categories, and courses)
-
+```shell
+curl --location --request PUT 'localhost:3000/api/v1/verticals/1' \
+--header 'Content-Type: application/json' \
+--data '{
+  "vertical": {
+    "name": "Test5353",
+    "categories_attributes": [
+      {
+        "id": 1,
+        "name": "Updated Category Name",
+        "courses_attributes": [
+          {
+            "id": 1,
+            "name": "Updated Course Name",
+            "author": "Updated Author"
+          }
+        ]
+      }
+    ]
+  }
+}
+'
+```
 ### Categories
 
 -   `GET api/v1/verticals/:id/categories`: List all categories belonging to a vertical
+```shell
+curl --location 'localhost:3000/api/v1/verticals/1/categories' \
+--header 'x-auth: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiVEVTVCIsImV4cCI6MTY5Nzg4NDgyNH0.s1rMYjKPU7gdBrPS1z904iXI9UxJRYl4eyWNrYgqPS8'
+```
 -   `GET api/v1/verticals/:id/categories/:id`: Show details of a specific category
+```shell
+curl --location 'localhost:3000/api/v1/verticals/1/categories/1' \
+--header 'x-auth: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiVEVTVCIsImV4cCI6MTY5Nzg4NDgyNH0.s1rMYjKPU7gdBrPS1z904iXI9UxJRYl4eyWNrYgqPS8'
+```
 
 ### Courses
 
 -   `GET api/v1/verticals/:id/categories/:id/courses`: List all courses
+```shell
+curl --location 'localhost:3000/api/v1/verticals/1/categories/1/courses' \
+--header 'x-auth: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiVEVTVCIsImV4cCI6MTY5Nzg4NDgyNH0.s1rMYjKPU7gdBrPS1z904iXI9UxJRYl4eyWNrYgqPS8'
+```
 -   `GET api/v1/verticals/:id/categories/:id/courses/:id`: Show details of a specific course
+```shell
+curl --location 'localhost:3000/api/v1/verticals/1/categories/1/courses/1' \
+--header 'x-auth: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiVEVTVCIsImV4cCI6MTY5Nzg4NDgyNH0.s1rMYjKPU7gdBrPS1z904iXI9UxJRYl4eyWNrYgqPS8'
+```
 
 ### Search
 
 -   `GET /api/v1/search?q=`: Search reources by name
+```shell
+curl --location 'localhost:3000/api/v1/search?q=music' \
+--header 'x-auth: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiVEVTVCIsImV4cCI6MTY5Nzg4NDgyNH0.s1rMYjKPU7gdBrPS1z904iXI9UxJRYl4eyWNrYgqPS8'
+```
 
 ## Elastic-Search
 
